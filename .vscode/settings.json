@@ -1,0 +1,52 @@
+{
+  // Theme
+  "workbench.colorTheme": "Correia Github+EverForest Theme",
+  "editor.tokenColorCustomizations": {
+    "comments": "#b1b1b1"
+  },
+
+  // Settings for Python Proejct
+  "window.zoomLevel": 0,
+  "workbench.tree.indent": 20,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.size": "fill",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 10000,
+  // "editor.cursorStyle": "block-outline",
+  "editor.cursorBlinking": "smooth",
+
+  "editor.rulers": [88], // recommended value from 'Black' formatter
+
+  "[python]": {
+    "editor.suggest.showSnippets": false, // suggest 안 보이게 하기
+
+    "python.linting.lintOnSave": true,
+    "python.linting.enabled": true,
+
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit"
+    }
+  },
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+	},
+
+  "[html]": {
+    "editor.formatOnSave": false,
+  },
+
+  // File Settings for Django
+  "files.associations": {
+    "**/*.html": "django-html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt"
+  },
+}
