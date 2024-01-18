@@ -1,5 +1,6 @@
 # My setting
 load_date.json
+*.pyc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
