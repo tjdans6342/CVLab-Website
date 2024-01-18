@@ -6,7 +6,7 @@
   },
 
   // Settings for Python Proejct
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "workbench.tree.indent": 20,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.size": "fill",

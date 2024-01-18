@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CVLab honmepage"/>
+    <link rel="shortcut icon" href="{% static 'main/images/logo_icon.png' %}" type="image/x-icon" />
+
+    <!-- OG (Open Graph Data) -->
+    <meta property="og:title" content="CVLab 홈페이지" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="배포후 생성된 URL" />
+    <meta property="og:image" content="배포후에 생성된 이미지 URL" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" />
+
+    <!-- Font Awesome -->
+    <script
+    src="https://kit.fontawesome.com/9eb162ac0d.js"
+    crossorigin="anonymous"
+    ></script>
+    
+    <title>{% block title %}CVLab{% endblock title %}</title>
+  </head>
+
+  <body>
+    {% block header %}{% endblock header %}
+    {% block content %}{% endblock content %}
+    {% block footer %}{% endblock footer %}
+    {% block js %}{% endblock js %}
+    {% block basejs %}{% endblock basejs %}
+  </body>
+</html>
+

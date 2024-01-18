@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block header %}
+<header>
+  <div class="header">
+      <div class="header__entire">
+          <div class="header__logo">
+              <div class="header__logo__image"><img src="{% static 'main/images/logo_icon.png' %}"></div>
+              <div class="header__logo__name"><p>CVLab</p></div>
+          </div>
+          <div class="header__menu">
+              <ul class="header__menu__list">
+                  <li><a href="{% url 'post-list' %}" class="header__menu__post" >Post</a></li>
+                  <li><a href="{% url 'index' %}" class="header__menu__seminar">Seminar</a></li>
+                  <li><a href="{% url 'index' %}" class="header__menu__members">Members</a></li>
+                  <li><a href="{% url 'gallery-list' %}" class="header__menu__gallery">Gallery</a></li>
+              </ul>
+          </div>
+          <div class="header__search__login">
+              <div class="header__search">
+                  <div class="header__search__box">
+                      <input type="text" placeholder="search...">
+                      <img src="{% static 'main/images/search_icon.png' %}">
+                  </div>
+              </div>
+              <div class="header__login">
+                  <div class="header__login__box">
+                      <button>
+                      <img src="{% static 'main/images/login_icon.png' %}">
+                      <div class="header__login__text">
+                      <p>LOGIN</p>
+                      </div>
+                  </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+{% endblock header %}
