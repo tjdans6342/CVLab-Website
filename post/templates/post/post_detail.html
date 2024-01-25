@@ -1,6 +1,8 @@
 {% extends "base/base_with_navbar.html" %}
 {% load static %}
 
+{% block title %}{{post.title}} | CVLab{% endblock title %}
+
 {% block css %}
   {% comment %} <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" /> {% endcomment %}
   <link rel="stylesheet" href="{% static 'post/styles/post_detail.css' %}"/>
@@ -14,8 +16,8 @@
         <li class="post__detail__user">{{ post.author.nickname }}</li>
         <li class="post__detail__date">작성일 2024.01.13</li>
         <li class="post__detail__modifydate">수정 2024.01.13</li>
-        <button class="post__detail__modify">수정</button>
-        <button class="post__detail__delete">삭제</button>
+        <button class="post__detail__modify"><a href="{% url 'post-update' post.id %}">수정</a></button>
+        <button class="post__detail__delete"><a href="{% url 'post-delete' post.id %}">삭제</a></button>
       </div>
       <div class="bar--gray--thin"></div>
       <p class="post__detail__content">

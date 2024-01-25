@@ -44,11 +44,20 @@ class PostCreateView(CreateView):
         return reverse("post-detail", kwargs={"post_id": self.object.id})
 
 
-# class PostUpdateView(LoginRequiredMixin, UpdateView):
-#     model = Post
-#     form_class = PostForm
-#     template_name = "post/post_form.html"
-#     pk_url_kwarg = "post_id"
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = "post/post_form.html"
+    pk_url_kwarg = "post_id"
 
-#     def get_success_url(self):
-#         return reverse("post-detail", kwargs={"post_id": self.object.id})
+    def get_success_url(self):
+        return reverse("post-detail", kwargs={"post_id": self.object.id})
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = "post/post_confirm_delete.html"
+    pk_url_kwarg = "post_id"
+
+    def get_success_url(self):
+        return reverse("post-list")

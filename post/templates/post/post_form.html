@@ -3,6 +3,10 @@
 
 {% load widget_tweaks %}
 
+{% block title %}
+    {% if post %}{{ post.title }} | 수정 {% else %}새 포스트 작성{% endif %}
+{% endblock title %}
+
 
 {% block css %}
   <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" />

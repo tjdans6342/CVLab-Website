@@ -158,3 +158,10 @@ li {
   background-color: var(--color-primary);
   cursor: pointer;
 }
+
+
+a {
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  color: inherit; /* 링크의 색상을 부모 요소의 색상으로 상속 */
+  cursor: pointer; /* 기본 커서 설정 */
+}
