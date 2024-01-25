@@ -25,7 +25,7 @@ class User(AbstractUser):
         (2, "manager"),
         (3, "admin"),
     ]
-    rank = models.IntegerField(choices=RANK_CHOICES, default=None)
+    rank = models.IntegerField(choices=RANK_CHOICES, default=1)
 
     def __str__(self):
         return self.email
