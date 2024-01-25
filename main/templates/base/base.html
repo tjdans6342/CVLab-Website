@@ -21,8 +21,12 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet"
     />
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" />
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" />
+    {% endblock css %}
 
     <!-- Font Awesome -->
     <script

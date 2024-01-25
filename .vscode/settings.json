@@ -40,6 +40,7 @@
 
   "[html]": {
     "editor.formatOnSave": false,
+    "editor.tabSize": 2,
   },
 
   // File Settings for Django

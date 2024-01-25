@@ -1,0 +1,94 @@
+{% extends "base/base_with_navbar.html" %}
+{% load static %}
+
+{% block css %}
+  {% comment %} <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" /> {% endcomment %}
+  <link rel="stylesheet" href="{% static 'post/styles/post_detail.css' %}"/>
+{% endblock css %}
+
+{% block content %}
+  <div id="post__detail" class="max-container">
+    <section>
+      <h2 class="post__detail__title">{{ post.title }}</h2>
+      <div class="post__detail__inform">
+        <li class="post__detail__user">{{ post.author.nickname }}</li>
+        <li class="post__detail__date">작성일 2024.01.13</li>
+        <li class="post__detail__modifydate">수정 2024.01.13</li>
+        <button class="post__detail__modify">수정</button>
+        <button class="post__detail__delete">삭제</button>
+      </div>
+      <div class="bar--gray--thin"></div>
+      <p class="post__detail__content">
+        {{ post.content }}
+      </p>
+      <div class="bar--gray--thin"></div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="post__detail__comment">
+          <div class="user__info">
+            <img
+              src="{% static 'post/images/user.png' %}"
+              alt="User Image"
+              class="user__image"
+            />
+            <p class="post__detail__username">작성자</p>
+          </div>
+          <textarea
+            type="text"
+            class="text-input"
+            placeholder="내용을 입력하세요..."
+          ></textarea>
+          <button class="comment__submit">등록</button>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="post__detail__comments__info">
+        <li>댓글</li>
+        <li>2</li>
+      </div>
+      <div class="bar--gray--thin"></div>
+      <div>
+        <div class="post__detail__comments">
+          <img src="{% static 'post/images/user.png' %}" alt="User Image" class="user__image" />
+          <li>작성자</li>
+          <li>2024.01.18</li>
+          <li>02:32</li>
+          <div class="post__detail__button">
+            <button class="comment__button">수정</button
+            ><button class="comment__button">삭제</button>
+          </div>
+        </div>
+        <p class="comments__content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam at
+          non nulla nobis tenetur, aperiam explicabo maiores, alias magni
+          itaque soluta dignissimos, numquam reprehenderit! Accusamus, veniam?
+          Ut minima quaerat nesciunt.
+        </p>
+        <div class="bar--gray--thin"></div>
+      </div>
+      <!-- 반복 -->
+      <div>
+        <div class="post__detail__comments">
+          <img src="{% static 'post/images/user.png' %}" alt="User Image" class="user__image" />
+          <li>작성자</li>
+          <li>2024.01.18</li>
+          <li>02:32</li>
+          <div class="post__detail__button">
+            <button class="comment__button">수정</button
+            ><button class="comment__button">삭제</button>
+          </div>
+        </div>
+        <p class="comments__content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam at
+          non nulla nobis tenetur, aperiam explicabo maiores, alias magni
+          itaque soluta dignissimos, numquam reprehenderit! Accusamus, veniam?
+          Ut minima quaerat nesciunt.
+        </p>
+        <div class="bar--gray--thin"></div>
+      </div>
+      <!-- 반복끝 -->
+    </section>
+  </div>
+{% endblock content %}

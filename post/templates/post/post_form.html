@@ -1,0 +1,53 @@
+{% extends "base/base_with_navbar.html" %}
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'post/styles/post_form.css' %}"/>
+{% endblock css %}
+
+
+{% block content %}
+    <div id="post__form" class="max-container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="post__form__menu">
+                <label for="fileUpload" class="folder__icon-container">
+                    <img src="{% static 'post/images/folder_icon.png' %}" class="folder__icon" alt="" />
+                    <input type="file" id="fileUpload" />
+                </label>
+                <div class="choice">
+                    <input type="radio" id="Choice1" name="choice" value="public" />
+                    <label for="contactChoice1">공개</label>
+
+                    <input type="radio" id="Choice2" name="choice" value="private" />
+                    <label for="contactChoice2">비공개</label>
+
+                    <input type="radio" id="Choice3" name="choice" value="protect" />
+                    <label for="contactChoice3">보호</label>
+                </div>
+            </div>
+            <div class="post__form">
+                <div class="bar--gray"></div>
+                {{ form.title|add_class:"post__form__title"|attr:"placeholder:제목" }}
+                {% comment %} <input type="text" class="post__form__title" placeholder="제목" /> {% endcomment %}
+                <div class="bar--gray--thin"></div>
+                {{ form.content|add_class:"post__form__content"|attr:"placeholder:내용을 입력하세요..." }}
+                {% comment %} <textarea
+                class="post__form__content"
+                placeholder="내용을 입력하세요..."
+                ></textarea> {% endcomment %}
+                <div class="bar--gray--thin" style="width: 100%"></div>
+            </div>
+            <input type="submit" value="등록" class="submit" />
+            <!-- 수정시에는 수정버튼으로 변경 -->
+        </form>
+    </div>
+{% endblock content %}
+
+
+
+
