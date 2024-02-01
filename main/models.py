@@ -8,7 +8,7 @@ from user.models import User
 class Comment(models.Model):
     dt_created = models.DateTimeField(auto_now_add=True)
 
-    comment = models.TextField(max_length=150, blank=False)
+    comment = models.TextField(max_length=500, blank=False)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
@@ -29,7 +29,7 @@ class Comment(models.Model):
 class Image(models.Model):
     dt_created = models.DateTimeField(auto_now_add=True)
 
-    image = models.ImageField(upload_to="pics")
+    image = models.ImageField(upload_to="gallery")
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="images")
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)

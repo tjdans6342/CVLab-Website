@@ -17,7 +17,7 @@ class News(models.Model):
     dislikes = GenericRelation(Dislike, related_query_name="news")
 
     def __str__(self):
-        return self.title[:30]
+        return self.content[:30]
 
     class Meta:
         ordering = ["-dt_created"]

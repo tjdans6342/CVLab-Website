@@ -1,13 +1,14 @@
 # create_posts.py
 
+
 def main():
     fake = Faker()
 
     for i in range(30):
         post = Post.objects.create(
-            title = fake.sentence()[:28],
-            content = fake.paragraph(nb_sentences=5),
-            author = random.choice(User.objects.all())
+            title=fake.sentence()[:28],
+            content=fake.paragraph(nb_sentences=5),
+            author=random.choice(User.objects.all())
             # author=User.objects.first(),  # You may need to adjust this based on your User model
         )
         print(f"Created post. Title: {post.title}  Author: {post.author.nickname}")
@@ -27,8 +28,8 @@ if __name__ == "__main__":
 
     import random
     from faker import Faker
-    
+
     from post.models import Post
     from user.models import User
 
-    main()
+    # main()
