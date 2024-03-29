@@ -31,13 +31,15 @@ class PostDetailView(DetailView):
     pk_url_kwarg = "post_id"
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = "post/post_form.html"
 
     def form_valid(self, form):
-        form.instance.author = User.objects.first()
+        # form.instance.author = User.objects.first()
+        print(self.request.user)
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):
