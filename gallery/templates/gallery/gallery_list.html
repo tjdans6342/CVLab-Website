@@ -1,0 +1,46 @@
+{% extends "base/base_with_navbar.html" %}
+{% load static %}
+
+{% block content %}
+  <main>
+    <div class="gallery__list">
+			<h1 class="gallery__title">GALLERY</h1>
+			<div class="bar" style="width: 100%"></div>
+			<div class="gallery__boxs">
+				<div class="gallery__images">
+          {% for gallery in galleries %}
+            <a href="{% url 'gallery-detail' gallery.id %}" class="gallery__image">
+              <img src="/uploads/{{ gallery.images.first.image }}" alt="">
+            </a>
+          {% endfor %}
+				</div>
+			</div>
+			<div class="bar--gray"></div>
+      <div class="pagination__section" >
+      {% if is_paginated %}
+        <div></div>
+        <div>
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li><a class="number__list" href="?page=1">처음</a></li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+                <li><a class="number__list current" href="#">{{ num }}</a></li>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li><a class="number__list" href="?page={{ num }}">{{ num }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li><a class="number__list" href="?page={{ page_obj.paginator.num_pages }}">마지막</a></li>
+            {% endif %}
+          </ul>
+        </div>   
+        <div class="gallery__write">
+          <button class="gallery__write__btn"><a href="{% url 'gallery-create' %}">작성</a></button>
+        </div>
+      {% endif %}
+      </div>
+		</div>
+  </main>
+{% endblock content %}

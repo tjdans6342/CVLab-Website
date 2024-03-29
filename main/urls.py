@@ -1,10 +1,9 @@
 from django.urls import include, path
 
-from .views import index
+from . import views
 
 urlpatterns = [
-    path("", index, name="index"),
-    
+    path("", views.IndexView.as_view(), name="index"),
     # include other apps
     path("posts/", include("post.urls")),
     path("galleries/", include("gallery.urls")),

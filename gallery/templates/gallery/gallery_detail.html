@@ -1,0 +1,60 @@
+{% extends "base/base_with_navbar.html" %}
+{% load static %}
+
+{% block content %}
+  <main>
+    <section id="gallery__detail" class="max-container">
+      <h2 class="gallery__detail__title">{{ gallery.title }}</h2>
+      <div class="bar--gray--thin"></div>
+
+      <div class="gallery__detail__inform">
+        <li class="gallery__detail__user">{{ gallery.author.nickname }}</li>
+        <div class="bar--vertical"></div>
+        <li class="gallery__detail__date">{{ gallery.dt_created|date:"Y.m.d" }}</li>
+        <button class="gallery__detail__delete">삭제</button>
+      </div>
+      <img src="/uploads/{{ gallery.images.first.image }}" class="gallery__title__image" />
+      <div class="gallery__detail__content">
+        <button class="gallery__move__button">&#60;</button>
+        <img src="{% static 'main/images/gray_box.png' %}" class="gallery__detail__image" />
+        <img src="{% static 'main/images/gray_box.png' %}" class="gallery__detail__image" />
+        <img src="{% static 'main/images/gray_box.png' %}" class="gallery__detail__image" />
+        <img src="{% static 'main/images/gray_box.png' %}" class="gallery__detail__image" />
+        <button class="gallery__move__button">&#62;</button>
+      </div>
+      <div class="bar--gray--thin"></div>
+      <div class="gallery__comment__container">
+        <textarea
+          class="gallery__comment"
+          placeholder="내용을 입력하세요..."
+        ></textarea>
+        <input type="submit" value="등록" class="comment__submitted" />
+      </div>
+      <section>
+        <div class="post__detail__comments__info">
+          <li>댓글⠀</li>
+          <li>{{ gallery.comments.all|length }}</li>
+        </div>
+        <div class="bar--gray--thin"></div>
+        {% for comment in gallery.comments.all %}
+          <div>
+            <div class="post__detail__comments">
+              <img src="/uploads/{{ comment.user.profile_pic }}" alt="User Image" class="user__image" />
+              <li>{{ comment.user.nickname }}</li>
+              <li>{{ comment.dt_created|date:"Y.m.d" }}</li>
+              <li>{{ comment.dt_created|date:"H:i" }}</li>
+              <div class="post__detail__button">
+                <button class="comment__button">수정</button
+                ><button class="comment__button">삭제</button>
+              </div>
+            </div>
+            <p class="comments__content">
+              {{ comment.comment }}
+            </p>
+            <div class="bar--gray--thin"></div>
+          </div>
+        {% endfor %}
+      </section>
+    </section>
+  </main>
+{% endblock content %}

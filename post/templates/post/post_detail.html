@@ -3,11 +3,6 @@
 
 {% block title %}{{post.title}} | CVLab{% endblock title %}
 
-{% block css %}
-  {% comment %} <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" /> {% endcomment %}
-  <link rel="stylesheet" href="{% static 'post/styles/post_detail.css' %}"/>
-{% endblock css %}
-
 {% block content %}
   <div id="post__detail" class="max-container">
     <section>
@@ -48,49 +43,27 @@
     <section>
       <div class="post__detail__comments__info">
         <li>댓글</li>
-        <li>2</li>
+        <li>{{ post.comments.all|length }}</li>
       </div>
       <div class="bar--gray--thin"></div>
-      <div>
-        <div class="post__detail__comments">
-          <img src="{% static 'post/images/user.png' %}" alt="User Image" class="user__image" />
-          <li>작성자</li>
-          <li>2024.01.18</li>
-          <li>02:32</li>
-          <div class="post__detail__button">
-            <button class="comment__button">수정</button
-            ><button class="comment__button">삭제</button>
+      {% for comment in post.comments.all %}
+        <div>
+          <div class="post__detail__comments">
+            <img src="{% static 'post/images/user.png' %}" alt="User Image" class="user__image" />
+            <li>{{ comment.user.nickname }}</li>
+              <li>{{ comment.dt_created|date:"Y.m.d" }}</li>
+              <li>{{ comment.dt_created|date:"H:i" }}</li>
+            <div class="post__detail__button">
+              <button class="comment__button">수정</button
+              ><button class="comment__button">삭제</button>
+            </div>
           </div>
+          <p class="comments__content">
+            {{ comment.comment }}
+          </p>
+          <div class="bar--gray--thin"></div>
         </div>
-        <p class="comments__content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam at
-          non nulla nobis tenetur, aperiam explicabo maiores, alias magni
-          itaque soluta dignissimos, numquam reprehenderit! Accusamus, veniam?
-          Ut minima quaerat nesciunt.
-        </p>
-        <div class="bar--gray--thin"></div>
-      </div>
-      <!-- 반복 -->
-      <div>
-        <div class="post__detail__comments">
-          <img src="{% static 'post/images/user.png' %}" alt="User Image" class="user__image" />
-          <li>작성자</li>
-          <li>2024.01.18</li>
-          <li>02:32</li>
-          <div class="post__detail__button">
-            <button class="comment__button">수정</button
-            ><button class="comment__button">삭제</button>
-          </div>
-        </div>
-        <p class="comments__content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam at
-          non nulla nobis tenetur, aperiam explicabo maiores, alias magni
-          itaque soluta dignissimos, numquam reprehenderit! Accusamus, veniam?
-          Ut minima quaerat nesciunt.
-        </p>
-        <div class="bar--gray--thin"></div>
-      </div>
-      <!-- 반복끝 -->
+      {% endfor %}
     </section>
   </div>
 {% endblock content %}

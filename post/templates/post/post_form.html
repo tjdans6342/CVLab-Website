@@ -7,7 +7,6 @@
     {% if post %}{{ post.title }} | 수정 {% else %}새 포스트 작성{% endif %}
 {% endblock title %}
 
-
 {% block css %}
   <link rel="stylesheet" href="{% static 'main/styles/base.css' %}" />
   <link rel="stylesheet" href="{% static 'post/styles/post_form.css' %}"/>
@@ -37,13 +36,8 @@
             <div class="post__form">
                 <div class="bar--gray"></div>
                 {{ form.title|add_class:"post__form__title"|attr:"placeholder:제목" }}
-                {% comment %} <input type="text" class="post__form__title" placeholder="제목" /> {% endcomment %}
                 <div class="bar--gray--thin"></div>
                 {{ form.content|add_class:"post__form__content"|attr:"placeholder:내용을 입력하세요..." }}
-                {% comment %} <textarea
-                class="post__form__content"
-                placeholder="내용을 입력하세요..."
-                ></textarea> {% endcomment %}
                 <div class="bar--gray--thin" style="width: 100%"></div>
             </div>
             <input type="submit" value="등록" class="submit" />
